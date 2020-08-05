@@ -59,10 +59,13 @@ export default {
               emoteData.startLoc,
               emoteData.length + 1
             );
+
             var regexPattern = new RegExp(
-              this.escapeRegExp(textToReplace),
+              `(?<!s)${this.escapeRegExp(textToReplace)}(?!s)`,
               "g"
             );
+
+            console.log(regexPattern);
             newMessage = newMessage.replace(regexPattern, emoteData.imageUrl);
           });
 
